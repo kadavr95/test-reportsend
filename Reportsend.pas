@@ -62,7 +62,12 @@ begin
 
   lHTTP := TIdHTTP.Create(nil);
   try
-   Result :=lHTTP.Get('https://docs.google.com/forms/d/1FAIpQLSeQ0eesLUv8i1tXwDlCoeTSCiZOqj2khNewjJPOpR2g_e8B8Q/formResponse?hl=en_US&formkey=dFRjT0hwYXNXbVRfUU9KN1hDSkk3MlE6MQ&submit=Submit&ifq&entry.1000000=Test');
+    try
+     Result :=lHTTP.Get('https://docs.google.com/forms/d/e/UNIQUE_IDENTIFICATOR/formResponse?entry.750461711=null&entry.2078020227=BolgenOS&entry.555925212=2&entry.1779644686=void&submit=Submit');
+    except
+       Result := '';
+        Exit;
+    end;
   finally
     lHTTP.Free;
     lParamList.Free;
